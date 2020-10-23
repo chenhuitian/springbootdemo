@@ -15,8 +15,8 @@ public class GlobalExceptionHandler {
 	public Map<String, Object> handlerException(Exception exception) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("errorCode", 500);
-//		map.put("errorMsg", exception.toString());
-		map.put("errorMsg", "this is customer error");
+		map.put("errorMsg", exception.toString());
+//		map.put("errorMsg", "this is customer error");
 		return map;
 	}
 
