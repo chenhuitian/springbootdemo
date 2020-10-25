@@ -1,11 +1,17 @@
 package bunkerchain.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+//one to many
 @Entity
 @Table(name = "Hotel")
 public class Hotel {
@@ -17,18 +23,24 @@ public class Hotel {
 	    @GeneratedValue
 	    private Long id;
 	
-	    public Hotel(String name, String number) {
-		super();
-		this.name = name;
-		this.number = number;
-	}
-
 		@Column(length = 32)
 	    private String name;
 	    @Column(length = 32)
 	    private String number;
+	    
+	    @OneToMany(mappedBy = "hotel")
+	    private Set<Customer> cutomers = new HashSet<>();
+	    
+	 
+		public Set<Customer> getCutomers() {
+			return cutomers;
+		}
 
-	    public Long getId() {
+		public void setCutomers(Set<Customer> cutomers) {
+			this.cutomers = cutomers;
+		}
+
+		public Long getId() {
 	        return id;
 	    }
 

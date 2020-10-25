@@ -40,13 +40,13 @@ public class CustomerController {
 	@PostMapping("/add")
 	public Customer newCustomer(@RequestBody Customer customer) {
 
-		Hotel h = new Hotel("ht", "htnumber");
-		hotelDao.save(h);
+//		Hotel h = new Hotel("ht", "htnumber");
+//		hotelDao.save(h);
+//		
+//		Customer c = new Customer("na","Pd","");
+//		c.setHotel(h);
 		
-		Customer c = new Customer("na","Pd","");
-		c.setHotel(h);
-		
-		return	customerDao.save(c);
+		return	customerDao.save(customer);
 
 	}
 	
