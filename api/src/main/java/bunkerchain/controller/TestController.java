@@ -45,9 +45,11 @@ public class TestController {
 		return "hello world";
 	}
 	
-	@RequestMapping(value = "/showError", method = RequestMethod.GET)
-	public String showError() {
-		int i=9/0;
-		return "dd";
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	public String showError() throws Exception {
+		//int i=9/0;
+				throw new Exception("this is test");
+		
+//		return "dd";
 	}
 }

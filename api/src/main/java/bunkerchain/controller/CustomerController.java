@@ -73,9 +73,11 @@ public class CustomerController {
 	
 	@RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
 	public Customer deleteCustomer(@PathVariable("id") Long id, @RequestBody Customer customer) {
-		customer.setId(id);
-		customerDao.save(customer);
-	  return customerDao.save(customer);
+		Customer c = customerDao.getOne(id);
+		c.setName(customer.getName());
+//		customer.setId(id);
+//		customerDao.save(customer);
+	  return customerDao.save(c);
 	}
 	
 //	public ResponseEntity<Object> updateProduct(@PathVariable("id") String id, @RequestBody Product product) {
