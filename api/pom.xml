@@ -6,7 +6,7 @@
 	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>User</name>
-	<description>this is user test</description>
+	<description>this is chen user test</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
