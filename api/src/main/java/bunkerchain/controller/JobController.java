@@ -7,15 +7,11 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import bunkerchain.entity.Customer;
 import bunkerchain.entity.Job;
-import bunkerchain.entity.Location;
 import bunkerchain.repository.JobDao;
 
 @RestController
@@ -28,6 +24,8 @@ public class JobController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Optional<Job> getJob(@PathVariable("id") Long id){
+		System.out.println(jobDao.getOne(id));
+		
 		return jobDao.findById(id);
 	}
 	
@@ -43,7 +41,7 @@ public class JobController {
 			throw new Exception("Job status is not pending.");
 		}
 		
-		j.setStatus(2);
+		j.setStatus(2); 
 
 	  return jobDao.save(j);
 	}

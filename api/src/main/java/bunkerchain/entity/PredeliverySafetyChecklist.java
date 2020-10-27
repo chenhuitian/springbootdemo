@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,7 +33,15 @@ public class PredeliverySafetyChecklist implements Serializable {
 	private java.sql.Timestamp chiefEngineerSignedAt;
 	private java.sql.Timestamp surveyorSignedAt;
 	
+//	@OneToOne(mappedBy = "predeliverySafetyChecklist", cascade = CascadeType.ALL,
+//            fetch = FetchType.EAGER)
+//	private BunkerDeliveryNote bunkerDeliveryNote;
+	
 	@OneToMany(mappedBy = "predeliverySafetyChecklist")
 	private Set<PredeliverySafetyChecklistItem> checkListAssoc = new HashSet<>();
+	
+	public PredeliverySafetyChecklist() {
+		// TODO Auto-generated constructor stub
+	}
 
 }

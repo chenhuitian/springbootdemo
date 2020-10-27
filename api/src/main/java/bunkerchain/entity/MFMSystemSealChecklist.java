@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -25,6 +26,10 @@ public class MFMSystemSealChecklist implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+//	@OneToOne(mappedBy = "mfmSystemSealChecklist", cascade = CascadeType.ALL,
+//            fetch = FetchType.EAGER)
+//	private BunkerDeliveryNote bunkerDeliveryNote;
 	
 	private int sealVerificationReportNumber;
 	
@@ -127,5 +132,8 @@ public class MFMSystemSealChecklist implements Serializable {
 		this.surveyorSignedAtAfterDelivery = surveyorSignedAtAfterDelivery;
 	}
 	
+	public MFMSystemSealChecklist() {
+		// TODO Auto-generated constructor stub
+	}
 
 }

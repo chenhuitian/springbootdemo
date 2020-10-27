@@ -3,14 +3,17 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,10 @@ public class MeterReadingRecordForm implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@OneToOne(mappedBy = "meterReadingRecordForm", cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+	private BunkerDeliveryNote bunkerDeliveryNote;
 	
 	@Column(name = "sampling_container_seal_number")
 	private int samplingContainerSealNumber;
@@ -67,5 +74,9 @@ public class MeterReadingRecordForm implements Serializable {
 	private java.sql.Timestamp cargoOfficerSignedAtAfterDelivery;
 	private java.sql.Timestamp chiefEngineerSignedAtAfterDelivery;
 	private java.sql.Timestamp surveyorSignedAtAfterDelivery;
+	
+	public MeterReadingRecordForm() {
+		// TODO Auto-generated constructor stub
+	}
 
 }
